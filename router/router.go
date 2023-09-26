@@ -29,5 +29,4 @@ func Routes() http.Handler {
 	router.Get("/api/users", controllers.GetAllUsers)
 
 	return router
-
 }

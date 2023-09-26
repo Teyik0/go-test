@@ -38,10 +38,13 @@ func main() {
 	// Handle DB connection
 	db, err := database.ConnectDB()
 	if err != nil {
+		database_url := os.Getenv("DATABASE_URL")
+		fmt.Println(database_url)
 		log.Fatal("Cannot connect to database")
 	}
 	// Defer disconnect until program stops
 	defer db.Client.Disconnect()
+
 	// create config struct
 	config := Config{
 		Port: os.Getenv("PORT"),
